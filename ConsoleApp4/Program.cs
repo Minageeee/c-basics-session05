@@ -1,0 +1,126 @@
+﻿void spacing()
+{
+    Console.WriteLine("##################################");
+}
+
+
+
+
+#region q1
+book Book1 = new book();
+//Console.WriteLine(Book1.password);  it will make error because the password is private and only visible to the class since its private
+
+
+#endregion
+
+spacing();
+
+
+
+#region q2
+Console.WriteLine(Book1.CopiesInStock); //it will work because the internal means the variable is visible to the whole program or the whole namespace 
+
+#endregion
+
+
+spacing();
+
+
+#region q3
+Console.WriteLine(Book1.Title);
+
+#endregion
+
+
+
+spacing();
+
+#region q4
+Book1.genre = Genre.Science; //we didnt take the property yet in the last session
+
+#endregion
+
+
+spacing();
+
+
+
+#region q5
+Console.WriteLine($"fiction : {(int)Genre.Fiction} , NonFiction : {(int)Genre.NonFiction} , Science : {(int)Genre.Science}");
+
+#endregion
+
+
+spacing();
+
+#region q6
+int genreNumber = 1;
+Console.WriteLine((Genre)genreNumber);
+
+#endregion
+
+
+spacing();
+
+#region q7
+Genre genre = Genre.Fiction;
+Console.WriteLine(genre.ToString());
+
+#endregion
+
+
+spacing();
+
+
+#region q8
+String genreText = "Science";
+
+Console.WriteLine(Enum.Parse<Genre>(genreText));
+
+#endregion
+
+spacing();
+
+
+#region q9
+string GenreText = "Mystery";
+if(Enum.TryParse<Genre>(GenreText, out Genre res))
+{
+    Console.WriteLine(res);
+}
+else
+{
+    Console.WriteLine("Unknown genre");
+}
+#endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class book
+{
+    private string password = "secret";
+    internal int CopiesInStock = 5;
+    public string Title = "Hepta";
+    public Genre genre;
+}
+
+enum Genre
+{
+    Fiction,
+    NonFiction,
+    Science
+}
